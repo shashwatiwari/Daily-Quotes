@@ -1,0 +1,60 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#box {
+    width: 360px;
+    height: 360px;
+    background-color: rgb(94, 219, 219);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+#image {
+    width: 100px;
+    height: 100px;
+    margin-left: 10px;
+    display: flex;
+}
+
+#quotes {
+    text-align: center;
+    display: flex;
+    /* Enable flexbox layout */
+    align-items: center;
+    font-size: 22px;
+    font-style: serif;
+}
+
+#author {
+    margin-top: 20px;
+    flex: right;
+}
+
+#newQ {
+    width: 100%;
+    height: 10%;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 10px;
+    background-color: rgb(241, 189, 45);
+    font-size: medium;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#newQ:hover {
+    color: #7a2020;
+    cursor: pointer;
+    background-color: #eeeeeef2;
+}

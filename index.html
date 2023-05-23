@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="link rel=" stylesheet
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Quotes</title>
+</head>
+
+<body>
+    <div id="box">
+        <img id="image" src="quotes_symbol.png" alt="image">
+        <div id="quotes"></div>
+        <div id="author"></div>
+        <button id="newQ">New Quotes</button>
+    </div>
+    <div class="text"><i class="start-quote fas fa-quote-left"></i>
+        <p id="quotes" class="quotes"></p>
+        <p id="author" class="author"></p>
+    </div>
+
+
+    <script>
+        const quotes = document.getElementById('quotes');
+        const author = document.getElementById('author')
+        const newQ = document.getElementById('newQ');
+        let realData = "";
+        let quotesData = "";
+
+        const getNewQuotes = () => {
+            let rnum = Math.floor(Math.random() * 10);  // math.random give the random value between 0 and 1 every time
+            // console.log(realData[rnum].author);
+            quotesData = realData[rnum];
+            quotes.innerText = `${quotesData.text}`
+            quotesData.author == null
+                ? (author.innerText = "unknown")
+                : (author.innerText = `${quotesData.author}`);
+        }
+        const getQuotes = async () => {
+            const api = "https://type.fit/api/quotes";
+            try {
+                let data = await fetch(api);
+                realData = await data.json(); // as this is async version so we have to wait to come the data 
+                getNewQuotes();
+                // console.log(realData)
+                // console.log(realData[0]);
+                // console.log(realData[0].text)
+
+            } catch (error) {
+
+            }
+            newQ.addEventListener('click', getNewQuotes)
+        }
+
+        getQuotes();
+    </script>
+</body>
+
+</html>
